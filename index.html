@@ -37,8 +37,13 @@
     <div class="container my-3">
         <h1>Welcome to My Notes</h1>
         <div class="card">
-
+            
             <div class="card-body">
+                <div class="mb-3">
+                    <h5 class="card-title">Add title</h5>
+                    <input type="title" class="form-control" id="addTitle" aria-describedby="emailHelp">
+                    
+                  </div>
                 <h5 class="card-title">Add Notes</h5>
                 <div class="form-group">
                     <textarea class="form-control" id="addtxt" rows="3"></textarea>
@@ -58,8 +63,7 @@
         crossorigin="anonymous"></script>
 </body>
 <script>
-// console.log('hello world');
-// console.log('hello world');
+    // console.log('hello world');
 showNote();
 let addbtn=document.getElementById('addbtn');
 addbtn.addEventListener("click",function(e){
@@ -137,7 +141,8 @@ search.addEventListener("input", function(){
     let noteCards = document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element){
         let cardTxt = element.getElementsByTagName("p")[0].innerText;
-        if(cardTxt.includes(inputVal)){
+        let cardTitle = element.getElementsByTagName("h5")[0].innerText;
+        if(cardTxt.includes(inputVal) || cardTitle.includes(inputVal)){
             element.style.display = "block";
         }
         else{
